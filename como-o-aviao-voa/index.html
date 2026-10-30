@@ -33,6 +33,78 @@
     "publisher": { "@type": "Organization", "name": "Torque" }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Por que o avião não cai? A explicação da escola está errada",
+    "description": "Um Airbus A320 decola com até 78 toneladas e fica no ar apoiado em nada além de ar. A explicação do caminho mais longo por cima da asa está errada: o teste da fumaça, como a asa empurra o ar para baixo, de onde vem a diferença de pressão, o estol e o número que segura o avião.",
+    "thumbnailUrl": "https://i.ytimg.com/vi/YPFiWslCV9Q/maxresdefault.jpg",
+    "uploadDate": "2026-11-01T10:00:00-03:00",
+    "duration": "PT7M44S",
+    "inLanguage": "pt-BR",
+    "embedUrl": "https://www.youtube.com/embed/YPFiWslCV9Q",
+    "contentUrl": "https://www.youtube.com/watch?v=YPFiWslCV9Q",
+    "hasPart": [
+      {
+        "@type": "Clip",
+        "name": "Abertura",
+        "startOffset": 0,
+        "endOffset": 38,
+        "url": "https://www.youtube.com/watch?v=YPFiWslCV9Q&t=0"
+      },
+      {
+        "@type": "Clip",
+        "name": "A explicação da escola",
+        "startOffset": 38,
+        "endOffset": 92,
+        "url": "https://www.youtube.com/watch?v=YPFiWslCV9Q&t=38"
+      },
+      {
+        "@type": "Clip",
+        "name": "O teste da fumaça",
+        "startOffset": 92,
+        "endOffset": 159,
+        "url": "https://www.youtube.com/watch?v=YPFiWslCV9Q&t=92"
+      },
+      {
+        "@type": "Clip",
+        "name": "A asa empurra o ar para baixo",
+        "startOffset": 159,
+        "endOffset": 219,
+        "url": "https://www.youtube.com/watch?v=YPFiWslCV9Q&t=159"
+      },
+      {
+        "@type": "Clip",
+        "name": "De onde vem a diferença de pressão",
+        "startOffset": 219,
+        "endOffset": 305,
+        "url": "https://www.youtube.com/watch?v=YPFiWslCV9Q&t=219"
+      },
+      {
+        "@type": "Clip",
+        "name": "O segredo é o ângulo",
+        "startOffset": 305,
+        "endOffset": 365,
+        "url": "https://www.youtube.com/watch?v=YPFiWslCV9Q&t=305"
+      },
+      {
+        "@type": "Clip",
+        "name": "O número que segura o avião",
+        "startOffset": 365,
+        "endOffset": 409,
+        "url": "https://www.youtube.com/watch?v=YPFiWslCV9Q&t=365"
+      },
+      {
+        "@type": "Clip",
+        "name": "Fechamento",
+        "startOffset": 409,
+        "endOffset": 464,
+        "url": "https://www.youtube.com/watch?v=YPFiWslCV9Q&t=409"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 <header class="topo">
@@ -51,7 +123,7 @@
         <span class="tocar"></span>
       </button>
     </div>
-    <p class="aviso">O player do YouTube só carrega quando você clica. <a href="https://www.youtube.com/watch?v=Y2moMxZaD90">Abrir no YouTube</a></p>
+    <p class="aviso">O player do YouTube só carrega quando você clica. <a href="https://www.youtube.com/watch?v=YPFiWslCV9Q">Abrir no YouTube</a></p>
 
     <p class="resposta"><strong>Em uma frase:</strong> o avião fica no ar porque a asa, inclinada contra o vento, desvia o ar para baixo; pela terceira lei de Newton, o ar empurra a asa para cima, e essa força aparece como uma pressão um pouco menor em cima da asa do que embaixo.</p>
 
@@ -173,7 +245,7 @@
   // Troca a capa pelo player só no clique; antes disso, nada é pedido ao YouTube.
   document.querySelector("#video button").addEventListener("click", function () {
     var quadro = document.createElement("iframe");
-    quadro.src = "https://www.youtube-nocookie.com/embed/Y2moMxZaD90?autoplay=1&rel=0";
+    quadro.src = "https://www.youtube-nocookie.com/embed/YPFiWslCV9Q?autoplay=1&rel=0";
     quadro.title = "Por que o avião não cai? A explicação da escola está errada";
     quadro.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
     quadro.allowFullscreen = true;
