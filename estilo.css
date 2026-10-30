@@ -143,6 +143,8 @@ figure img { display: block; width: 100%; height: auto; border: 2px solid var(--
 figcaption { margin-top: 0.6rem; font-size: 0.98rem; line-height: 1.5; color: var(--suave); }
 figcaption b { color: var(--peca); font-family: "Space Grotesk", sans-serif; margin-right: 0.35rem; }
 
+/* Resposta curta no topo: o que a busca e quem tem pressa leem primeiro. */
+.resposta { border-left: 4px solid var(--laranja); padding: 0.2rem 0 0.2rem 1.1rem; margin-bottom: 1.6rem; }
 .mito { border-left: 4px solid var(--laranja); padding: 0.2rem 0 0.2rem 1.1rem; }
 
 /* Memória de cálculo do número. */
