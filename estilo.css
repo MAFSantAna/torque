@@ -12,6 +12,7 @@
   --laranja: #ff8a3d;
   --suave: #8a97b1;
   --succao: #3d7bff;
+  --succao-claro: #8fb0ff;
   --painel: #0f182b;
   --coluna: 68ch;
 }
@@ -102,28 +103,38 @@ p { margin: 0 auto 1.15rem; }
   background: transparent;
   cursor: pointer;
 }
+/* O botão fica no canto de baixo, sobre uma sombra, para não tapar o desenho nem o texto da capa. */
+.video button { background: linear-gradient(to top, rgba(11, 18, 32, 0.78), rgba(11, 18, 32, 0) 38%); }
 .video .tocar {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 5.5rem;
-  height: 5.5rem;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  align-items: center;
+  height: 2.9rem;
+  padding: 0 1.2rem 0 2.75rem;
+  border-radius: 999px;
   background: var(--laranja);
-  box-shadow: 0 0 0 10px rgba(255, 138, 61, 0.22);
+  color: var(--planta);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  box-shadow: 0 0 0 6px rgba(255, 138, 61, 0.2);
+  transform-origin: right center;
   transition: transform 0.15s ease;
 }
+.video .tocar::before { content: "Assistir"; }
 .video .tocar::after {
   content: "";
   position: absolute;
-  left: 38%;
-  top: 28%;
+  left: 1.15rem;
+  top: 50%;
+  transform: translateY(-50%);
   border-style: solid;
-  border-width: 1.35rem 0 1.35rem 2.1rem;
+  border-width: 0.55rem 0 0.55rem 0.85rem;
   border-color: transparent transparent transparent var(--planta);
 }
-.video button:hover .tocar, .video button:focus-visible .tocar { transform: translate(-50%, -50%) scale(1.07); }
+.video button:hover .tocar, .video button:focus-visible .tocar { transform: scale(1.05); }
 .video + .aviso { margin-top: -2rem; margin-bottom: 2.6rem; font-size: 0.9rem; color: var(--suave); }
 
 /* Figuras como prancha de desenho técnico: cota no alto e legenda numerada. */
@@ -144,8 +155,38 @@ figcaption { margin-top: 0.6rem; font-size: 0.98rem; line-height: 1.5; color: va
 figcaption b { color: var(--peca); font-family: "Space Grotesk", sans-serif; margin-right: 0.35rem; }
 
 /* Resposta curta no topo: o que a busca e quem tem pressa leem primeiro. */
-.resposta { border-left: 4px solid var(--laranja); padding: 0.2rem 0 0.2rem 1.1rem; margin-bottom: 1.6rem; }
-.mito { border-left: 4px solid var(--laranja); padding: 0.2rem 0 0.2rem 1.1rem; }
+.resposta {
+  margin-bottom: 1.8rem;
+  padding: 1rem 1.25rem 1.1rem;
+  border: 1px solid rgba(61, 123, 255, 0.45);
+  border-left: 4px solid var(--succao);
+  background: rgba(61, 123, 255, 0.09);
+}
+.resposta > strong:first-child {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.95rem;
+  color: var(--succao-claro);
+}
+
+/* O mito leva a marca de errado das cenas: um ✕ laranja num círculo. */
+.mito { position: relative; padding-left: 3.1rem; }
+.mito::before {
+  content: "✕";
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 2.1rem;
+  height: 2.1rem;
+  border: 2px solid var(--laranja);
+  border-radius: 50%;
+  color: var(--laranja);
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.95rem;
+  text-align: center;
+}
 
 /* Memória de cálculo do número. */
 .calculo {
@@ -182,11 +223,48 @@ figcaption b { color: var(--peca); font-family: "Space Grotesk", sans-serif; mar
 .fontes { font-size: 1rem; color: var(--suave); }
 .fontes li { margin-bottom: 0.45rem; }
 
-.lista-posts { list-style: none; padding: 0; }
-.lista-posts li { border-top: 1px solid var(--linha-forte); padding: 1.4rem 0; }
-.lista-posts a.titulo { font-family: "Space Grotesk", sans-serif; font-size: 1.6rem; color: var(--peca); text-decoration: none; }
+/* Página inicial: um cartão por artigo, com a capa do vídeo. */
+.lista-posts { list-style: none; padding: 0; display: grid; gap: 1.2rem; }
+.lista-posts li {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) 1fr;
+  gap: 1.2rem;
+  align-items: start;
+  padding: 0.9rem;
+  border: 1px solid var(--linha-forte);
+  background: var(--painel);
+}
+.lista-posts .capa img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--linha-forte); }
+.lista-posts a.titulo { display: block; font-family: "Space Grotesk", sans-serif; font-size: 1.4rem; line-height: 1.15; color: var(--peca); text-decoration: none; }
 .lista-posts a.titulo:hover { color: var(--laranja); }
-.lista-posts p { color: var(--suave); margin: 0.4rem 0 0; }
+.lista-posts p { color: var(--suave); font-size: 1rem; line-height: 1.5; margin: 0.5rem 0 0; }
+
+/* Fim do artigo: o convite para o canal e os outros artigos. */
+.convite {
+  display: flex;
+  gap: 1.1rem;
+  align-items: center;
+  margin: 3rem auto 2rem;
+  padding: 1.2rem 1.3rem;
+  border: 2px solid var(--linha-forte);
+  background: var(--painel);
+}
+.convite img { flex: none; width: 3.5rem; height: 3.5rem; }
+.convite p { margin: 0 0 0.7rem; }
+.inscrever {
+  display: inline-block;
+  padding: 0.55rem 1.1rem;
+  border: 2px solid var(--laranja);
+  border-radius: 6px;
+  color: var(--laranja);
+  font-weight: 700;
+  text-decoration: none;
+}
+.inscrever:hover { background: var(--laranja); color: var(--planta); }
+.outros ul { list-style: none; padding: 0; margin: 0; }
+.outros li { border-top: 1px solid var(--linha-forte); padding: 0.75rem 0; }
+.outros a { font-family: "Space Grotesk", sans-serif; font-size: 1.15rem; color: var(--peca); text-decoration: none; }
+.outros a:hover { color: var(--laranja); }
 
 footer {
   max-width: calc(var(--coluna) + 4rem);
@@ -201,6 +279,10 @@ footer p { max-width: var(--coluna); margin: 0 auto 0.5rem; }
   body { font-size: 1.0625rem; }
   .abre { font-size: 1.18rem; }
   .calculo dl { grid-template-columns: 1fr; }
+  .lista-posts li { grid-template-columns: 1fr; }
+  .convite { align-items: flex-start; }
+  .video .tocar { right: 0.6rem; bottom: 0.6rem; height: 2.3rem; padding: 0 0.9rem 0 2.2rem; font-size: 0.92rem; box-shadow: 0 0 0 4px rgba(255, 138, 61, 0.2); }
+  .video .tocar::after { left: 0.9rem; border-width: 0.45rem 0 0.45rem 0.7rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
